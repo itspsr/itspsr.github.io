@@ -3,102 +3,168 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pratik Kumar – Data Analyst Portfolio</title>
+<title>Pratik Kumar – Advanced Portfolio</title>
 
+<!-- ====== STYLES ====== -->
 <style>
   body{
     margin:0;
     font-family: Inter, sans-serif;
-    background:#0d1117;
-    color:#ffffff;
+    background:#0c0f1a;
+    color:#e4ecff;
+    overflow-x:hidden;
   }
 
-  .container{
-    max-width:1100px;
-    margin:auto;
-    padding:40px 20px;
+  /* GRID BACKGROUND */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(transparent 95%, rgba(255,255,255,0.04) 96%),
+      linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.04) 96%);
+    background-size:38px 38px;
+    opacity:0.15;
+    pointer-events:none;
   }
 
-  /* HEADER */
+  .container{ max-width:1150px; margin:auto; padding:35px 20px; position:relative; z-index:2; }
+
+  /* HERO */
   .hero{
     text-align:center;
-    padding:60px 20px;
+    padding:80px 20px 60px;
   }
   .hero h1{
-    font-size:42px;
+    font-size:50px;
+    font-weight:800;
     background:linear-gradient(to right,#4ea8ff,#b388ff);
     -webkit-background-clip:text;
     color:transparent;
     margin:0;
   }
   .hero p{
-    margin-top:10px;
-    color:#c9d1d9;
-    font-size:18px;
+    margin-top:12px;
+    font-size:20px;
+    color:#a9b7d8;
   }
 
-  /* CARD */
+  /* CARDS */
   .card{
-    background:#161b22;
-    padding:25px;
-    border-radius:14px;
-    margin-top:25px;
-    border:1px solid rgba(255,255,255,0.07);
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:16px;
+    margin-top:30px;
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(8px);
+    transition:0.3s ease;
+  }
+  .card:hover{
+    border-color:#4ea8ff;
+    transform:translateY(-4px);
   }
 
-  /* PROJECT BLOCK */
+  /* PROJECTS */
   .project{
-    margin-top:15px;
-    padding:15px;
-    background:#1b222c;
-    border-radius:10px;
-    border:1px solid rgba(255,255,255,0.08);
+    padding:18px;
+    margin-top:18px;
+    background:rgba(255,255,255,0.06);
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.25s;
   }
-  a{color:#4ea8ff; text-decoration:none;}
+  .project:hover{
+    transform:translateY(-3px);
+    border-color:#4ea8ff;
+  }
+
+  a{ color:#4ea8ff; text-decoration:none; }
+
+  /* SIMPLE BUTTON */
+  .btn{
+    padding:12px 20px;
+    background:#4ea8ff22;
+    border:1px solid #4ea8ff55;
+    color:#4ea8ff;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.25s;
+  }
+  .btn:hover{ background:#4ea8ff44; }
+
+  /* CHART GRID */
+  .chartGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:20px;
+  }
+
+  canvas{ width:100% !important; height:200px !important; }
+
 </style>
+
 </head>
 <body>
 
 <div class="container">
 
+  <!-- ====== ADVANCED HERO (GSAP READY) ====== -->
   <section class="hero">
-    <h1>Pratik Kumar</h1>
-    <p>Data Analyst | MBA Candidate @ IIT Patna</p>
+    <h1 id="heroTitle">Pratik Kumar</h1>
+    <p id="heroSub">Data Analyst • MBA @ IIT Patna • BI & Growth</p>
+    <button id="scrollBtn" class="btn" style="margin-top:25px;">Explore Portfolio ↓</button>
   </section>
 
+  <!-- ====== ANALYTICS DASHBOARD SECTION ====== -->
+  <section id="analytics" class="card">
+    <h2 style="margin-bottom:10px;">Analytics Dashboard</h2>
+    <p class="meta" style="margin-bottom:18px;">A professional BI-style overview showcasing your analytics capability</p>
+
+    <div class="chartGrid">
+      <div class="chartWrap"><h3>Monthly Growth</h3><canvas id="growthChart"></canvas></div>
+      <div class="chartWrap"><h3>Traffic Channels</h3><canvas id="trafficChart"></canvas></div>
+      <div class="chartWrap"><h3>Project Types</h3><canvas id="projectChart"></canvas></div>
+    </div>
+  </section>
+
+  <!-- ====== ABOUT ====== -->
   <section class="card">
     <h2>About Me</h2>
-    <p>I am a Data Analyst with strong experience in SQL, Python, Power BI and business analytics. I convert raw data into clear insights, dashboards and strategy recommendations. Currently pursuing MBA at IIT Patna.</p>
+    <p>I am a Data Analyst with experience in SQL, Python, Power BI and analytics strategy. I convert data into dashboards, growth insights and business decisions.</p>
   </section>
 
+  <!-- ====== SKILLS ====== -->
   <section class="card">
     <h2>Skills</h2>
-    <p>Python, SQL, Power BI, Tableau, Excel, Data Cleaning, Forecasting, Dashboarding, Machine Learning Basics</p>
+    <p>Python · SQL · Power BI · Tableau · Excel · Forecasting · Growth Analytics · ML Basics</p>
   </section>
 
+  <!-- ====== PROJECTS ====== -->
   <section class="card">
     <h2>Projects</h2>
 
     <div class="project">
       <h3>Customer Retention Analysis</h3>
-      <p>Churn analysis & retention strategy dashboard.</p>
+      <p>Churn analysis, segmentation & retention dashboard.</p>
       <a href="https://github.com/itspsr/Customer-Retention-Analysis">View Project →</a>
     </div>
 
     <div class="project">
       <h3>Flight Ticket Price Prediction</h3>
-      <p>Machine learning model for airfare prediction.</p>
+      <p>ML-based airfare prediction with feature engineering.</p>
       <a href="https://github.com/itspsr/Flight-Ticket-Price-Prediction">View Project →</a>
     </div>
 
     <div class="project">
       <h3>House Pricing Prediction</h3>
-      <p>Regression model and EDA for predicting property prices.</p>
+      <p>Regression model for real-estate valuation.</p>
       <a href="https://github.com/itspsr/House-Pricing-Prediction">View Project →</a>
     </div>
 
   </section>
 
+  <!-- ====== CONTACT ====== -->
   <section class="card">
     <h2>Contact</h2>
     <p>Email: pratik6472@gmail.com</p>
@@ -106,9 +172,38 @@
     <p>GitHub: <a href="https://github.com/itspsr">github.com/itspsr</a></p>
   </section>
 
-  <footer style="text-align:center; margin-top:40px; color:#8b949e;">© 2025 Pratik Kumar</footer>
-
+  <footer style="text-align:center; margin-top:40px; color:#8b96a5;">© 2025 Pratik Kumar</footer>
 </div>
+
+<!-- ====== SCRIPTS: GSAP + CHART JS ====== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+// SCROLL BUTTON
+scrollBtn.onclick = () => {
+  window.scrollTo({ top: analytics.offsetTop - 30, behavior:'smooth' });
+};
+
+// GSAP HERO
+const tl = gsap.timeline();
+tl.from('#heroTitle',{y:40, opacity:0, duration:0.8})
+  .from('#heroSub',{y:20, opacity:0, duration:0.6}, '-=0.4')
+  .from('#scrollBtn',{scale:0.8, opacity:0, duration:0.5});
+
+// CHARTS
+new Chart(document.getElementById('growthChart'),{
+  type:'line', data:{labels:['Jan','Feb','Mar','Apr','May'],datasets:[{label:'Growth',data:[5,12,9,18,26],borderColor:'#4ea8ff',tension:0.4}]}, options:{plugins:{legend:{display:false}}}
+});
+
+new Chart(document.getElementById('trafficChart'),{
+  type:'bar', data:{labels:['Organic','Ads','Direct','SEO'],datasets:[{data:[40,25,20,15],backgroundColor:['#4ea8ff','#b388ff','#4ea8ff99','#b388ff99']}]}, options:{plugins:{legend:{display:false}}}
+});
+
+new Chart(document.getElementById('projectChart'),{
+  type:'pie', data:{labels:['ML','Analytics','NLP','BI'],datasets:[{data:[30,35,15,20],backgroundColor:['#4ea8ff','#b388ff','#4ea8ff77','#b388ff77']}]} 
+});
+</script>
 
 </body>
 </html>

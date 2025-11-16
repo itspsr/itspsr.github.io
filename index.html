@@ -98,6 +98,55 @@
 </head>
 <body id="body" style="opacity:0; animation: fadeInUp 0.8s ease forwards;"> <canvas id="particles"></canvas> <div id="cursor-glow"></div> <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" class="float-icon" style="top:20%; left:10%; width:40px;"> <img src="https://cdn-icons-png.flaticon.com/512/919/919830.png" class="float-icon" style="top:70%; left:80%; width:45px;"> <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" class="float-icon" style="top:50%; left:5%; width:38px;"> style="opacity:0; animation: fadeInUp 0.8s ease forwards;"> <canvas id="particles"></canvas> style="opacity:0; animation: fadeInUp 0.8s ease forwards;">
   <div class="container">
+
+<!-- ADVANCED LANDING (GSAP TIMELINE INTRO) -->
+<section id="landing" class="card" style="margin-bottom:28px; padding:55px; text-align:center; border-radius:22px; position:relative; overflow:hidden;">
+
+  <div id="landingTitle" style="font-size:42px; font-weight:800; margin-bottom:12px; background:linear-gradient(to right, #ffffff, var(--accent)); -webkit-background-clip:text; color:transparent;">
+    Pratik Kumar
+  </div>
+
+  <div id="landingSub" style="font-size:20px; color:#a9b7d8; margin-bottom:25px;">
+    Data Analyst • MBA @ IIT Patna • Business Intelligence & Growth Strategy
+  </div>
+
+  <button id="enterBtn" class="btn" style="padding:14px 22px; font-size:16px; border-radius:10px; background:rgba(255,255,255,0.05); backdrop-filter:blur(5px);">
+    Explore Portfolio ↓
+  </button>
+
+  <!-- Decorative floating circle -->
+  <div style="position:absolute; top:-80px; right:-80px; width:200px; height:200px; border-radius:50%; background:var(--accent2); opacity:0.28; filter:blur(40px);"></div>
+  <div style="position:absolute; bottom:-80px; left:-80px; width:200px; height:200px; border-radius:50%; background:var(--accent); opacity:0.25; filter:blur(40px);"></div>
+
+</section>
+
+<!-- ANALYTICS DASHBOARD HOMEPAGE SECTION -->
+<section id="analyticsHome" class="card" style="margin-bottom:28px; padding:30px; border-radius:22px;">
+  <h2 style="font-size:26px; margin-bottom:15px;">Live Analytics Overview</h2>
+  <p class="meta" style="margin-bottom:20px;">A modern data‑dashboard style panel showcasing your analytics skills.</p>
+
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+
+    <!-- Line Chart (animated) -->
+    <div class="small-card" style="padding:18px; border-radius:14px;">
+      <h3>Monthly Growth Trend</h3>
+      <canvas id="lineChart" height="130"></canvas>
+    </div>
+
+    <!-- Bar Chart -->
+    <div class="small-card" style="padding:18px; border-radius:14px;">
+      <h3>Traffic Sources</h3>
+      <canvas id="barChart" height="130"></canvas>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="small-card" style="padding:18px; border-radius:14px;">
+      <h3>Project Categories</h3>
+      <canvas id="pieChart" height="130"></canvas>
+    </div>
+
+  </div>
+</section>
     <div class="card header">
       <div class="avatar">PK</div>
       <div>
@@ -268,5 +317,43 @@ const chatbox=document.getElementById('chatbox'); const chatInput=document.getEl
 
 document.addEventListener('DOMContentLoaded',()=>{ document.body.classList.add('loaded'); });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+/* LANDING GSAP ANIMATION */
+const tl = gsap.timeline();
+tl.from('#landingTitle', {y:40, opacity:0, duration:0.8, ease:'power3.out'})
+  .from('#landingSub', {y:20, opacity:0, duration:0.6}, '-=0.3')
+  .from('#enterBtn', {opacity:0, scale:0.8, duration:0.5}, '-=0.2');
+
+document.getElementById('enterBtn').onclick = () => {
+  window.scrollTo({ top: document.getElementById('analyticsHome').offsetTop - 40, behavior:'smooth' });
+};
+
+/* ANALYTICS CHARTS */
+const lineCtx = document.getElementById('lineChart');
+new Chart(lineCtx, {
+  type:'line',
+  data:{labels:['Jan','Feb','Mar','Apr','May','Jun'], datasets:[{label:'Growth %', data:[5,12,9,18,25,32], borderColor:'#4ea8ff', tension:0.45}]},
+  options:{plugins:{legend:{display:false}}, scales:{y:{ticks:{color:'#a9b7d8'}, grid:{color:'rgba(255,255,255,0.05)'}}, x:{ticks:{color:'#a9b7d8'}, grid:{display:false}}}}
+});
+
+const barCtx = document.getElementById('barChart');
+new Chart(barCtx, {
+  type:'bar',
+  data:{labels:['SEO','Organic','Ads','Direct'], datasets:[{data:[35,25,20,20], backgroundColor:['#4ea8ff','#7f5cff','#4ea8ff80','#7f5cff80']}]},
+  options:{plugins:{legend:{display:false}}, scales:{y:{ticks:{color:'#a9b7d8'}, grid:{color:'rgba(255,255,255,0.05)'}}, x:{ticks:{color:'#a9b7d8'}}}}
+});
+
+const pieCtx = document.getElementById('pieChart');
+new Chart(pieCtx, {
+  type:'pie',
+  data:{labels:['ML','Analytics','NLP','BI'], datasets:[{data:[30,40,15,15], backgroundColor:['#4ea8ff','#7f5cff','#4ea8ff88','#7f5cff88']}]},
+  options:{plugins:{legend:{labels:{color:'#e3e9ff'}}}}
+});
+</script>
+
 </body>
 </html>

@@ -147,6 +147,36 @@
     /* Dark/Light mode toggle button */
     #themeToggle { position:fixed; right:16px; bottom:16px; background:#111; color:white; padding:10px 14px; border-radius:8px; cursor:pointer; z-index:9999; border:1px solid rgba(255,255,255,0.2);} 
 
+  /* Glassmorphism */
+    .glass { background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); backdrop-filter: blur(6px) saturate(120%); -webkit-backdrop-filter: blur(6px); border:1px solid rgba(255,255,255,0.06); }
+
+    /* Noise texture overlay */
+    .noise { position:fixed; inset:0; pointer-events:none; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><filter id="n"><feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="120" height="120" filter="url(%23n)" opacity="0.04"/></svg>'); z-index:0; }
+
+    /* Carousel */
+    .carousel{position:relative; overflow:hidden; border-radius:10px}
+    .slides{display:flex;transition:transform 0.6s ease}
+    .slide{min-width:100%;padding:18px}
+    .carousel-nav{display:flex;gap:8px;justify-content:center;margin-top:10px}
+    .carousel-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.08);cursor:pointer}
+    .carousel-dot.active{background:var(--accent)}
+
+    /* KPI counters */
+    .kpi{display:flex;gap:12px;flex-wrap:wrap}
+    .kpi-item{flex:1 1 140px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:10px;text-align:center}
+    .kpi-num{font-size:20px;font-weight:700;color:var(--accent)}
+
+    /* Magnetic button */
+    .magnetic{display:inline-block;position:relative}
+
+    /* Responsive tuning */
+    @media(max-width:600px){
+      .grid{grid-template-columns:1fr}
+      .avatar{width:84px;height:84px}
+      .cta{display:none}
+      .float-icon{display:none}
+    }
+
 </style>
 </head>
 <body id="body" style="opacity:0; animation: fadeInUp 0.8s ease forwards;"> <canvas id="particles"></canvas> <div id="cursor-glow"></div> <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" class="float-icon" style="top:20%; left:10%; width:40px;"> <img src="https://cdn-icons-png.flaticon.com/512/919/919830.png" class="float-icon" style="top:70%; left:80%; width:45px;"> <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" class="float-icon" style="top:50%; left:5%; width:38px;"> style="opacity:0; animation: fadeInUp 0.8s ease forwards;"> <canvas id="particles"></canvas> style="opacity:0; animation: fadeInUp 0.8s ease forwards;">
@@ -186,25 +216,33 @@
         </section>
 
         <section id="projects" class="card projects" style="margin-top:18px">
-          <h2>Selected Projects</h2>
+          <h2>Highlighted Projects</h2>
 
-          <div class="project"><h3>Customer Retention Analysis</h3><div class="meta">Python, SQL, Power BI</div><p class="meta" style="color:var(--muted)">Analyzed churn patterns, performed cohort analysis, and built retention dashboards to identify high-risk segments.</p></div>
+          <div class="carousel">
+            <div class="slides">
+              <div class="slide project glass">
+                <h3>Customer Retention Analysis</h3>
+                <div class="meta">Python, SQL, Power BI</div>
+                <p class="meta">Analyzed churn patterns, cohort analysis, retention dashboard with recommended actions. <a href="https://github.com/itspsr/Customer-Retention-Analysis">View on GitHub</a></p>
+              </div>
 
-          <div class="project"><h3>Flight Ticket Price Prediction</h3><div class="meta">Machine Learning, Python</div><p class="meta">Built ML model to predict dynamic ticket prices using feature engineering and regression algorithms.</p></div>
+              <div class="slide project glass">
+                <h3>Flight Ticket Price Prediction</h3>
+                <div class="meta">Machine Learning, Python</div>
+                <p class="meta">Dynamic price prediction model and feature insights. <a href="https://github.com/itspsr/Flight-Ticket-Price-Prediction">View on GitHub</a></p>
+              </div>
 
-          <div class="project"><h3>House Pricing Prediction</h3><div class="meta">ML, Python, EDA</div><p class="meta">Performed extensive EDA and applied ML models to estimate housing prices.</p></div>
+              <div class="slide project glass">
+                <h3>House Pricing Prediction</h3>
+                <div class="meta">ML, Python, EDA</div>
+                <p class="meta">End-to-end pipeline and model evaluation with interpretability plots. <a href="https://github.com/itspsr/House-Pricing-Prediction">View on GitHub</a></p>
+              </div>
+            </div>
+          </div>
 
-          <div class="project"><h3>Malignant Comment Classifier</h3><div class="meta">NLP, Python</div><p class="meta">Developed text classification model to detect toxic/malignant comments using NLP preprocessing and ML pipelines.</p></div>
+          <div class="carousel-nav" id="carouselDots"></div>
 
-          <div class="project"><h3>Micro Credit Loan Defaulter Prediction</h3><div class="meta">Python, ML Modeling</div><p class="meta">Predicted likelihood of loan default using imbalanced‑data techniques and model optimization.</p></div>
-
-          <div class="project"><h3>Rating Prediction Project</h3><div class="meta">ML, Python</div><p class="meta">Predicted product ratings using regression and user‑behavior data.</p></div>
-
-          <div class="project"><h3>Used Car Price Prediction</h3><div class="meta">ML, Python</div><p class="meta">Built supervised ML model to estimate used‑car sale prices based on market and vehicle attributes.</p></div>
-
-          <div class="project"><h3>Web Scraping & Selenium Automation</h3><div class="meta">Python, Selenium</div><p class="meta">Automated web scraping workflows and built structured datasets from dynamic sites.</p></div>
-
-          <p style="color:var(--muted);font-size:13px;margin-top:8px">More projects available on GitHub.</p>
+          <p style="color:var(--muted);font-size:13px;margin-top:8px">More projects available on GitHub — swipe or use dots to navigate.</p>
         </section>
 
         <section class="card" style="margin-top:18px">
@@ -227,10 +265,23 @@
           <p>GitHub: <a href="https://github.com/itspsr">github.com/itspsr</a></p>
         </div>
 
-        <div class="small-card">
-          <h3>Resume</h3>
-          <p class="meta">Upload your resume named <code>Pratik_Kumar_Resume.pdf</code> to the repo and link it here.</p>
-          <a class="btn" href="#">Download Resume</a>
+        <div class="small-card glass">
+          <h3>Key Metrics</h3>
+          <div class="kpi">
+            <div class="kpi-item"><div class="kpi-num" data-target="30">0</div><div class="meta">% Order Delay Reduced</div></div>
+            <div class="kpi-item"><div class="kpi-num" data-target="12">0</div><div class="meta">% Campaign Lift</div></div>
+            <div class="kpi-item"><div class="kpi-num" data-target="80">0</div><div class="meta">Projects on GitHub</div></div>
+          </div>
+          <p class="meta" style="margin-top:10px">Download resume:</p>
+          <a class="btn magnetic" href="Pratik_Kumar_Resume.pdf" download>Download Resume</a>
+        </div>
+
+        <div class="small-card glass" id="chatbotCard">
+          <h3>AI Assistant</h3>
+          <p class="meta">Ask quick questions about my projects or request a case study.</p>
+          <div id="chatbox" style="background:rgba(0,0,0,0.06);padding:8px;border-radius:8px;max-height:180px;overflow:auto"></div>
+          <input id="chatInput" placeholder="Ask about a project..." style="width:100%;padding:8px;margin-top:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit">
+          <button class="btn" id="chatSend" style="margin-top:8px">Send</button>
         </div>
 
         <div class="small-card">
@@ -270,6 +321,35 @@ const cursor=document.getElementById('cursor-glow'); document.addEventListener('
 // Dark/Light toggle
 let dark=true; const toggle=document.createElement('div'); toggle.id='themeToggle'; toggle.innerText='☀️'; document.body.appendChild(toggle);
 toggle.onclick=()=>{dark=!dark; if(dark){document.body.style.background='linear-gradient(180deg,#071029,#071a2b)'; toggle.innerText='☀️';} else {document.body.style.background='white'; document.body.style.color='black'; toggle.innerText='🌙';}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+/* Smooth scroll & simple parallax via GSAP */
+gsap.registerPlugin(ScrollTrigger);
+gsap.utils.toArray('.card').forEach(card=>{ gsap.from(card,{y:30,opacity:0,duration:0.8,stagger:0.08, scrollTrigger:{trigger:card, start:'top 85%'}}) });
+
+/* Carousel */
+const slides=document.querySelector('.slides'); const dotsContainer=document.getElementById('carouselDots'); const total=slides.children.length; let idx=0; for(let i=0;i<total;i++){const d=document.createElement('div');d.className='carousel-dot'; if(i===0) d.classList.add('active'); d.onclick=(()=>{go(i)}); dotsContainer.appendChild(d);} function go(i){idx=i; slides.style.transform=`translateX(-${i*100}%)`; Array.from(dotsContainer.children).forEach((x,ii)=>x.classList.toggle('active',ii===i));}
+setInterval(()=>{ idx=(idx+1)%total; go(idx); },4000);
+
+/* KPI counters */
+function animateCounters(){ document.querySelectorAll('.kpi-num').forEach(el=>{ const target=+el.dataset.target; let cur=0; const step=Math.max(1, Math.floor(target/40)); const t=setInterval(()=>{ cur+=step; if(cur>=target){ el.innerText=target; clearInterval(t);} else el.innerText=cur; },25); }); }
+ScrollTrigger.create({trigger:'.kpi', start:'top 90%', onEnter:animateCounters});
+
+/* Magnetic buttons */
+document.querySelectorAll('.magnetic').forEach(btn=>{ btn.addEventListener('mousemove',e=>{ const rect=btn.getBoundingClientRect(); const x=e.clientX-rect.left-rect.width/2; const y=e.clientY-rect.top-rect.height/2; btn.style.transform=`translate(${x*0.15}px,${y*0.15}px)`; }); btn.addEventListener('mouseleave',()=>btn.style.transform='translate(0,0)'); });
+
+/* Cursor glow optimized */
+const cursor=document.getElementById('cursor-glow'); document.addEventListener('mousemove',e=>{ cursor.style.transform=`translate(${e.clientX-9}px,${e.clientY-9}px)`; });
+
+/* Chatbot (very small local mock) */
+const chatbox=document.getElementById('chatbox'); const chatInput=document.getElementById('chatInput'); document.getElementById('chatSend').onclick=()=>{ const q=chatInput.value.trim(); if(!q) return; const p=document.createElement('div'); p.innerText='You: '+q; p.style.margin='6px 0'; chatbox.appendChild(p); // simple rule-based reply
+ let reply='I can share project links or summaries. Type "projects" to see list.'; if(/projects?/i.test(q)) reply='Projects: Customer Retention, Flight Price Prediction, House Pricing — links on GitHub.'; if(/resume|cv/i.test(q)) reply='Resume downloaded from the Download Resume button.'; const r=document.createElement('div'); r.innerText='Pratik (AI): '+reply; r.style.margin='6px 0'; r.style.opacity=0; chatbox.appendChild(r); gsap.to(r,{opacity:1,duration:0.4}); chatbox.scrollTop=chatbox.scrollHeight; chatInput.value=''; };
+
+/* Glassmorphism toggle tweak already handled by themeToggle, add glass effect toggle */
+
+document.addEventListener('DOMContentLoaded',()=>{ document.body.classList.add('loaded'); });
 </script>
 </body>
 </html>

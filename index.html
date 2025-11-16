@@ -1,197 +1,305 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pratik Kumar – Data Analyst Portfolio (Codebasics Style)</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Pratik Kumar — Data Analyst | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+  :root{
+    --blue:#2e59f3;
+    --muted:#6b7280;
+    --card:#ffffff;
+    --bg:#f6f8fc;
+    --radius:12px;
+  }
+  *{box-sizing:border-box}
   body{
-    margin:0;
-    font-family:'Inter',sans-serif;
-    background:#ffffff;
-    color:#1e1e1e;
+    margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+    background:var(--bg); color:#0f1724; -webkit-font-smoothing:antialiased;
   }
 
   /* NAV */
   nav{
-    position:fixed;top:0;left:0;right:0;
-    background:#fff;
-    padding:18px 50px;
-    display:flex;justify-content:space-between;align-items:center;
-    box-shadow:0 2px 12px rgba(0,0,0,0.06);
-    z-index:100;
+    position:fixed; top:0; left:0; right:0; height:68px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 36px; background:rgba(255,255,255,0.98);
+    box-shadow:0 6px 18px rgba(19,24,32,0.06); z-index:1200;
   }
-  nav a{
-    text-decoration:none;color:#333;margin-left:24px;font-weight:500;
-  }
-  nav a:hover{color:#2e59f3;}
+  .brand{ font-weight:700; color:var(--blue); font-size:18px }
+  .navlinks a{ margin-left:18px; text-decoration:none; color:#24303b; font-weight:600; font-size:14px; opacity:0.95 }
+  .navlinks a.active{ color:var(--blue); text-decoration:underline 2px rgba(46,89,243,0.14); }
 
   /* LAYOUT */
-  .wrapper{
-    max-width:1150px;margin:auto;
-    padding:120px 30px 40px;
-    display:flex;gap:45px;
-  }
-
-  /* LEFT PROFILE */
+  .wrapper{ max-width:1150px; margin:92px auto 64px; padding:0 20px; display:flex; gap:36px; align-items:flex-start; }
+  /* LEFT */
   .left{
-    width:30%;background:#fff;padding:28px;border-radius:14px;
-    box-shadow:0 3px 18px rgba(0,0,0,0.08);
-    height:max-content;position:sticky;top:120px;
+    width:310px; position:sticky; top:92px; align-self:flex-start;
   }
-  .profile-pic{
-    width:100%;height:260px;border-radius:12px;object-fit:cover;background:#eee;
+  .card{
+    background:var(--card); border-radius:var(--radius); padding:22px; box-shadow:0 8px 28px rgba(15,23,42,0.06);
+    border:1px solid rgba(15,23,42,0.03);
   }
-  .left h2{margin:18px 0 4px;font-size:28px;font-weight:700;}
-  .left p{color:#555;font-size:14px;margin:4px 0;}
+  .profile-pic{ width:100%; height:320px; object-fit:cover; border-radius:10px; background:#e9eefb; display:block }
+  .name{ margin:12px 0 0; font-size:22px; font-weight:700; color:#0b1320 }
+  .role{ color:var(--muted); margin-top:6px; font-size:14px }
+  .contact{ margin-top:12px; font-size:14px; color:#334155 }
+  .resume-btn{ display:inline-block; margin-top:14px; padding:10px 14px; border-radius:10px; background:linear-gradient(90deg,var(--blue),#8b63ff); color:#fff; text-decoration:none; font-weight:700; font-size:14px }
+
+  .socials{ display:flex; gap:10px; margin-top:12px }
+  .socials a{ width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; background:#f1f5f9; text-decoration:none; color:var(--blue); font-weight:600; font-size:14px }
 
   /* RIGHT */
-  .right{width:70%;}
+  .right{ flex:1 }
+  .section{ margin-bottom:26px }
+  .section .card{ padding:26px }
 
-  .section{
-    background:#fff;padding:32px;border-radius:14px;
-    box-shadow:0 3px 18px rgba(0,0,0,0.06);
-    margin-bottom:30px;
-  }
-  .section h2{margin:0 0 14px;font-size:26px;font-weight:600;}
+  h2{ margin:0 0 12px; font-size:22px; color:#0b1320 }
+  p.lead{ color:var(--muted); margin:0 0 8px; line-height:1.5 }
 
-  /* SKILLS TAGS */
-  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
-  .tag{
-    background:#eef2ff;padding:8px 14px;border-radius:20px;
-    border:1px solid #d7ddff;color:#2e59f3;font-size:14px;
-  }
+  /* TAGS */
+  .tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px }
+  .tag{ background:#eef2ff; color:var(--blue); padding:8px 12px; border-radius:20px; font-weight:600; font-size:13px; border:1px solid #e6ecff }
 
-  /* EXPERIENCE (TIMELINE) */
-  .timeline{
-    position:relative;margin-left:15px;margin-top:25px;
-  }
-  .timeline::before{
-    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#d7ddff;
-  }
-  .exp{
-    margin-left:25px;margin-bottom:25px;position:relative;
-  }
-  .exp::before{
-    content:"";position:absolute;left:-25px;top:4px;width:12px;height:12px;
-    background:#2e59f3;border-radius:50%;
-  }
-  .exp h3{margin:0;font-size:18px;font-weight:600;}
-  .exp .duration{font-size:13px;color:#666;margin-bottom:6px;}
-  .exp p{margin:0;color:#444;line-height:1.4;}
+  /* EXPERIENCE TIMELINE */
+  .timeline{ position:relative; margin-top:12px; padding-left:12px }
+  .timeline::before{ content:''; position:absolute; left:8px; top:0; bottom:0; width:3px; background:#eef2ff; border-radius:3px }
+  .exp{ position:relative; margin-bottom:24px; padding-left:24px }
+  .exp::before{ content:''; position:absolute; left:-9px; top:6px; width:14px; height:14px; border-radius:50%; background:var(--blue); box-shadow:0 0 0 4px #eef2ff }
+  .exp h3{ margin:0; font-size:16px; color:#0b1320 }
+  .exp .meta{ color:var(--muted); font-size:13px; margin:6px 0 }
+  .exp p{ color:#334155; margin:0; line-height:1.45 }
 
   /* PROJECTS */
+  .projects-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:12px }
   .project{
-    border:1px solid #e5e7eb;background:#fff;padding:20px;border-radius:12px;
-    transition:0.2s;margin-bottom:20px;
+    background:#fff; border-radius:10px; padding:16px; border:1px solid #eef2ff; transition:all .18s; display:flex; gap:12px; align-items:flex-start;
   }
-  .project:hover{
-    border-color:#2e59f3;box-shadow:0 4px 16px rgba(0,0,0,0.08);
-  }
-  .project h3{margin:0 0 6px;font-size:20px;}
-  .project p{margin:0 0 10px;color:#444;}
-  .project a{color:#2e59f3;font-weight:600;text-decoration:none;}
+  .project:hover{ transform:translateY(-6px); box-shadow:0 12px 30px rgba(16,24,40,0.06); border-color:rgba(46,89,243,0.14) }
+  .project img{ width:120px; height:80px; object-fit:cover; border-radius:8px; flex-shrink:0; }
+  .project h4{ margin:0 0 6px; font-size:15px }
+  .project p{ margin:0; color:var(--muted); font-size:13px }
 
-  /* CERTIFICATIONS */
-  .cert-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:10px;
-  }
-  .cert{
-    padding:16px;border-radius:12px;border:1px solid #e5e7eb;
-    background:#fff;transition:0.2s;
-  }
-  .cert:hover{border-color:#2e59f3;box-shadow:0 4px 16px rgba(0,0,0,0.08);} 
+  /* CERTS */
+  .cert-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:8px }
+  .cert{ background:#fff; padding:12px; border-radius:10px; border:1px solid #eef2ff; font-size:13px; color:#374151 }
 
   /* FOOTER */
-  footer{text-align:center;padding:25px;color:#777;margin-top:20px;font-size:14px;}
+  footer{ text-align:center; padding:28px; color:#64748b; font-size:14px }
+
+  /* RESPONSIVE */
+  @media(max-width:980px){
+    .wrapper{ padding:120px 20px 40px; gap:20px; flex-direction:column }
+    .left{ position:relative; width:100%; top:auto }
+    .projects-grid{ grid-template-columns:1fr }
+    .cert-grid{ grid-template-columns:1fr }
+    nav{ padding:12px 18px }
+  }
 </style>
 </head>
-
 <body>
 
 <!-- NAV -->
 <nav>
-  <div style="font-size:20px;font-weight:700;color:#2e59f3;">Pratik Kumar</div>
-  <div>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#certs">Certifications</a>
-    <a href="#contact">Contact</a>
+  <div class="brand">Pratik Kumar</div>
+  <div class="navlinks">
+    <a href="#about" data-target="about">About</a>
+    <a href="#skills" data-target="skills">Skills</a>
+    <a href="#experience" data-target="experience">Experience</a>
+    <a href="#projects" data-target="projects">Projects</a>
+    <a href="#certs" data-target="certs">Certifications</a>
+    <a href="#contact" data-target="contact">Contact</a>
   </div>
 </nav>
 
+<!-- MAIN -->
 <div class="wrapper">
 
   <!-- LEFT -->
-  <div class="left">
-    <img class="profile-pic" src="https://via.placeholder.com/400x300" />
-    <h2>Pratik Kumar</h2>
-    <p>Data Analyst • MBA @ IIT Patna</p>
-    <p>Email: pratik6472@gmail.com</p>
-    <p>GitHub: github.com/itspsr</p>
-    <p>LinkedIn: linkedin.com/in/data-by-pratik</p>
-  </div>
+  <aside class="left">
+    <div class="card">
+      <!-- Replace src with your real photo path (assets/profile.jpg) -->
+      <img class="profile-pic" src="https://via.placeholder.com/600x400?text=Pratik+Kumar" alt="Pratik Kumar" />
+      <div class="name-section">
+        <div class="name name-title" style="margin-top:12px; font-weight:700; font-size:20px">Pratik Kumar</div>
+        <div class="role" style="margin-top:6px">Data Analyst • MBA @ IIT Patna</div>
+      </div>
+
+      <div class="contact" style="margin-top:12px">
+        <div style="font-weight:600; color:#0b1320">Contact</div>
+        <div style="margin-top:6px; color:#374151; font-size:14px">pratik6472@gmail.com</div>
+        <div style="margin-top:6px; color:#374151; font-size:14px">Noida, Uttar Pradesh</div>
+        <a class="resume-btn" href="Pratik_Kumar_Resume.pdf" download style="display:inline-block">Download Resume</a>
+      </div>
+
+      <div class="socials" style="margin-top:14px">
+        <a href="https://github.com/itspsr" target="_blank">GH</a>
+        <a href="https://www.linkedin.com/in/data-by-pratik" target="_blank">LI</a>
+      </div>
+    </div>
+
+    <!-- small skills card -->
+    <div class="card" style="margin-top:16px">
+      <div style="font-weight:700; margin-bottom:8px">Top Skills</div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px">
+        <div style="background:#eef2ff; color:var(--blue); padding:6px 10px; border-radius:8px; font-weight:600; font-size:13px">SQL</div>
+        <div style="background:#eef2ff; color:var(--blue); padding:6px 10px; border-radius:8px; font-weight:600; font-size:13px">Power BI</div>
+        <div style="background:#eef2ff; color:var(--blue); padding:6px 10px; border-radius:8px; font-weight:600; font-size:13px">Python</div>
+      </div>
+    </div>
+  </aside>
 
   <!-- RIGHT -->
-  <div class="right">
+  <main class="right">
 
     <!-- ABOUT -->
-    <div class="section" id="about">
-      <h2>About Me</h2>
-      <p>I am a Data Analyst specializing in SQL, Python, Power BI, Tableau, and Business Analytics. My work includes building dashboards, improving KPIs, and supporting business decisions with data-driven insights.</p>
-    </div>
+    <section id="about" class="section card">
+      <h2>About</h2>
+      <p class="lead">I am a Data Analyst with 2+ years of experience building dashboards, automating reporting and applying analytics for product & growth. Currently pursuing MBA at IIT Patna. I work with SQL, Python, Power BI, Tableau and excel to convert business questions into data solutions.</p>
+    </section>
 
     <!-- SKILLS -->
-    <div class="section" id="skills">
+    <section id="skills" class="section card">
       <h2>Skills</h2>
-      <div class="tags">
-        <div class="tag">SQL</div><div class="tag">Python</div><div class="tag">Power BI</div>
-        <div class="tag">Tableau</div><div class="tag">Excel</div><div class="tag">EDA</div>
-        <div class="tag">Machine Learning</div><div class="tag">Analytics</div>
+      <div class="tags" aria-hidden="true">
+        <div class="tag">SQL</div>
+        <div class="tag">Python</div>
+        <div class="tag">Power BI</div>
+        <div class="tag">Tableau</div>
+        <div class="tag">Excel</div>
+        <div class="tag">EDA</div>
+        <div class="tag">ML</div>
+        <div class="tag">Business Analytics</div>
       </div>
-    </div>
+    </section>
 
-    <!-- EXPERIENCE (TIMELINE EXACT LIKE SHAIL SAHU) -->
-    <div class="section" id="experience">
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section card">
       <h2>Experience</h2>
       <div class="timeline">
-
         <div class="exp">
-          <h3>Data Analyst – P2P System</h3>
-          <div class="duration">Dec 2022 – Jul 2025</div>
-          <p>Built Power BI dashboards, automated analytics, improved campaign ROI by 12% and reduced order delays by 30%.</p>
+          <h3>Data Analyst — P2P System</h3>
+          <div class="meta">Dec 2022 – Jul 2025</div>
+          <p>Built Power BI dashboards that reduced order delays by 30%, ran A/B tests that improved campaign effectiveness by 12%, and automated monthly reporting pipelines.</p>
         </div>
 
         <div class="exp">
-          <h3>Data Science Intern – Flip Robo Technologies</h3>
-          <div class="duration">Jan 2022 – Jul 2022</div>
-          <p>Worked on ML modeling, data cleaning, feature engineering and reporting automation.</p>
+          <h3>Data Science Intern — Flip Robo Technologies</h3>
+          <div class="meta">Jan 2022 – Jul 2022</div>
+          <p>Worked on ML modeling, data cleaning, and ETL automation for product analytics projects.</p>
         </div>
 
         <div class="exp">
-          <h3>MBA – IIT Patna</h3>
-          <div class="duration">2025 – 2027</div>
-          <p>Management + Analytics specialization with business problem solving.</p>
+          <h3>MBA — IIT Patna</h3>
+          <div class="meta">2025 – 2027 (ongoing)</div>
+          <p>Specialization: Business Analytics & Strategy.</p>
         </div>
-
       </div>
-    </div>
+    </section>
 
     <!-- PROJECTS -->
-    <div class="section" id="projects">
+    <section id="projects" class="section card">
       <h2>Projects</h2>
 
-      <div class="project">
-        <h3>Customer Retention Analysis</h3>
-        <p>Cohort analysis, churn segmentation, and retention strategy dashboard.</p>
-        <a href="https://github.com/itspsr/Customer-Retention-Analysis">View Project →</a>
-      </div>
+      <div class="projects-grid">
+        <div class="project">
+          <img src="https://via.placeholder.com/360x240?text=Customer+Retention" alt="Customer Retention" />
+          <div>
+            <h4>Customer Retention Analysis</h4>
+            <p>Churn cohorts, RFM segmentation, and retention dashboard (Power BI & Python).</p>
+            <a href="https://github.com/itspsr/Customer-Retention-Analysis" target="_blank">View on GitHub →</a>
+          </div>
+        </div>
 
-      <div class="project">
-        <h3>Flight Ticket Price Prediction</h3>
-        <p>Machine learning model to predict ticket pricing using key factors.</p>
-        <a href="https://github.com/itspsr/Flight-Ticket-Price-Prediction">View Project →
+        <div class="project">
+          <img src="https://via.placeholder.com/360x240?text=Flight+Price" alt="Flight Price" />
+          <div>
+            <h4>Flight Ticket Price Prediction</h4>
+            <p>Regression and feature-engineering based price prediction model.</p>
+            <a href="https://github.com/itspsr/Flight-Ticket-Price-Prediction" target="_blank">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="https://via.placeholder.com/360x240?text=House+Pricing" alt="House Pricing" />
+          <div>
+            <h4>House Pricing Prediction</h4>
+            <p>Full EDA + model pipeline for housing price estimation.</p>
+            <a href="https://github.com/itspsr/House-Pricing-Prediction" target="_blank">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="https://via.placeholder.com/360x240?text=Used+Car" alt="Used Car" />
+          <div>
+            <h4>Used Car Price Prediction</h4>
+            <p>Supervised ML model built for used car pricing with marketplace features.</p>
+            <a href="https://github.com/itspsr/Used-Car-Price-Prediction" target="_blank">View on GitHub →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certs" class="section card">
+      <h2>Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert">Introduction to Programming Using Python</div>
+        <div class="cert">Certified Data Scientist</div>
+        <div class="cert">Business Analytics with Power BI</div>
+        <div class="cert">Certified Ethical Hacker (CEH)</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section card">
+      <h2>Contact</h2>
+      <p style="margin:0 0 8px">Email: <a href="mailto:pratik6472@gmail.com">pratik6472@gmail.com</a></p>
+      <p style="margin:0 0 8px">LinkedIn: <a href="https://www.linkedin.com/in/data-by-pratik" target="_blank">linkedin.com/in/data-by-pratik</a></p>
+      <p style="margin:0">GitHub: <a href="https://github.com/itspsr" target="_blank">github.com/itspsr</a></p>
+    </section>
+
+  </main>
+</div>
+
+<footer>© 2025 Pratik Kumar — Data Analyst Portfolio</footer>
+
+<!-- Minimal JS: scrollspy, smooth scroll, small GSAP intro -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+  // Smooth scroll for nav
+  document.querySelectorAll('.navlinks a').forEach(a=>{
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth', block:'start'});
+      // set active
+      document.querySelectorAll('.navlinks a').forEach(x=>x.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Scrollspy - update active link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.navlinks a');
+  window.addEventListener('scroll', ()=>{
+    let fromTop = window.scrollY + 100;
+    sections.forEach(sec=>{
+      if(sec.offsetTop <= fromTop && (sec.offsetTop + sec.offsetHeight) > fromTop){
+        const id = sec.getAttribute('id');
+        navLinks.forEach(link=>{
+          link.classList.toggle('active', link.getAttribute('href') === '#'+id);
+        });
+      }
+    });
+  });
+
+  // Simple GSAP intro on load
+  gsap.from('.left .card', {opacity:0, y:20, duration:0.7, delay:0.2});
+  gsap.from('.section', {opacity:0, y:26, duration:0.6, stagger:0.08, delay:0.35});
+
+  // Replace placeholders - optional: if you have assets folder, update src accordingly
+</script>
+</body>
+</html>

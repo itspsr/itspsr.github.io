@@ -51,14 +51,73 @@
       .avatar{width:96px;height:96px}
       .header{flex-direction:row}
     }
-  </style>
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {opacity:0; transform: translateY(20px);} 
+      100% {opacity:1; transform: translateY(0);}
+    }
+    @keyframes glowPulse {
+      0% { box-shadow:0 0 10px rgba(59,130,246,0.2); }
+      50% { box-shadow:0 0 18px rgba(59,130,246,0.45); }
+      100% { box-shadow:0 0 10px rgba(59,130,246,0.2); }
+    }
+
+    .card, .project, .small-card, .avatar {
+      animation: fadeInUp 0.7s ease forwards;
+    }
+
+    .avatar:hover {
+      transform: scale(1.05) rotate(1deg);
+      transition: 0.3s ease;
+      animation: glowPulse 2s infinite;
+    }
+
+    .btn:hover{
+      transform: translateY(-3px);
+      transition:0.2s;
+      border-color: var(--accent);
+    }
+
+    h1, h2, h3 { animation: fadeInUp 0.8s ease; }
+
+  /* Animations */
+    @keyframes fadeInUp {0% {opacity:0; transform: translateY(20px);}100% {opacity:1; transform: translateY(0);}}
+    @keyframes glowPulse {0% { box-shadow:0 0 10px rgba(59,130,246,0.2);}50% { box-shadow:0 0 18px rgba(59,130,246,0.45);}100% { box-shadow:0 0 10px rgba(59,130,246,0.2);}}
+
+    .card, .project, .small-card, .avatar { animation: fadeInUp 0.7s ease forwards; }
+    .avatar:hover { transform: scale(1.05) rotate(1deg); transition: 0.3s ease; animation: glowPulse 2s infinite; }
+    .btn:hover{ transform: translateY(-3px); transition:0.2s; border-color: var(--accent); box-shadow:0 0 12px rgba(59,130,246,0.4);}    
+    h1, h2, h3 { animation: fadeInUp 0.8s ease; }
+
+    /* Neon card hover */
+    .card:hover, .project:hover, .small-card:hover {
+      border:1px solid rgba(59,130,246,0.4);
+      box-shadow: 0 0 18px rgba(59,130,246,0.35);
+      transition:0.3s;
+    }
+
+    /* Typing animation */
+    .typing { 
+      width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid var(--accent);
+      animation: typing 3s steps(30) forwards, blink 0.7s infinite;
+    }
+    @keyframes typing { from{width:0;} to{width:100%;} }
+    @keyframes blink { 50%{border-color:transparent;} }
+
+    /* Particle canvas */
+    #particles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
+
+</style>
 </head>
-<body>
+<body id="body" style="opacity:0; animation: fadeInUp 0.8s ease forwards;"> <canvas id="particles"></canvas> style="opacity:0; animation: fadeInUp 0.8s ease forwards;">
   <div class="container">
     <div class="card header">
       <div class="avatar">PK</div>
       <div>
-        <h1>Pratik Kumar</h1>
+        <h1 class="typing">Pratik Kumar</h1>
         <div class="subtitle">Data Analyst • MBA Candidate at IIT Patna</div>
       </div>
 
@@ -152,5 +211,14 @@
     <footer class="card" style="margin-top:20px">Made with ❤️ • Pratik Kumar — Data Analyst | MBA Candidate at IIT Patna</footer>
 
   </div>
+<script>
+// Floating particle background
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+let particles = [];
+for(let i=0;i<70;i++){ particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:2+Math.random()*3, dx:(Math.random()-0.5)*0.6, dy:(Math.random()-0.5)*0.6}); }
+function animate(){ ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle='rgba(59,130,246,0.7)'; ctx.fill(); p.x+=p.dx; p.y+=p.dy; if(p.x<0||p.x>canvas.width)p.dx*=-1; if(p.y<0||p.y>canvas.height)p.dy*=-1;}); requestAnimationFrame(animate);} animate();
+</script>
 </body>
 </html>

@@ -5,37 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pratik Kumar - Data Analyst Portfolio</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Inter -->
+    <!-- Load Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Custom Tailwind Configuration -->
     <script>
+        // Custom Tailwind Configuration
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        'main-bg': '#0B0F19',
-                        'card-bg': '#1A1F29',
-                        'section-bg': '#12161F',
-                        'text-heading': '#F5F5F5',
-                        'text-normal': '#C0C0C0',
-                        'text-muted': '#8FA1B3',
-                        'tag-bg': '#0E1A2B',
-                        'tag-text': '#6AAEFF',
-                        'highlight-primary': '#4169E1',
-                        'highlight-secondary': '#3388FF',
-                        'border-card': '#2A2F36',
-                    },
                     fontFamily: {
-                        inter: ['Inter', 'sans-serif'],
+                        'sans': ['Inter', 'sans-serif'],
                     },
-                    boxShadow: {
-                        'custom': '0 4px 14px 0 rgba(10, 10, 10, 0.4)',
+                    colors: {
+                        // 1. Background Colors
+                        'main-bg': '#0B0F19', // Rich Black
+                        'card-bg': '#1A1F29', // Gunmetal
+                        'section-bg': '#12161F', // Charcoal
+                        
+                        // 2. Text Colors
+                        'text-heading': '#F5F5F5', // White Smoke
+                        'text-normal': '#C0C0C0', // Silver
+                        'text-muted': '#8FA1B3', // Cadet Gray
+                        
+                        // 3. Button / Tag Colors
+                        'tag-bg': '#0E1A2B', // Oxford Blue
+                        'tag-text': '#6AAEFF', // Soft Blue
+                        'highlight-primary': '#4169E1', // Royal Blue
+                        'highlight-underline': '#3388FF', // Electric Blue
+                        
+                        // 4. Border Colors
+                        'border-color': '#2A2F36', // Space Gray
                     }
                 }
             }
@@ -43,86 +47,56 @@
     </script>
     
     <style>
-        /* Set default font and background */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0B0F19; /* Main background */
-            color: #C0C0C0; /* Normal text */
-        }
-        
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #0B0F19; /* Main background */
+            background: #0B0F19; /* main-bg */
         }
         ::-webkit-scrollbar-thumb {
-            background: #2A2F36; /* Card border */
+            background: #2A2F36; /* border-color */
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #8FA1B3; /* Muted text */
+            background: #8FA1B3; /* text-muted */
         }
 
         /* Style for the active nav link */
         nav a.nav-link.active {
-            color: #4169E1; /* Primary highlight */
+            color: #4169E1; /* highlight-primary */
             font-weight: 600;
         }
-
-        /* --- Color Styles for Tags --- */
-        /* For "Programming & Query Languages" section */
-        .skill-tag-grey {
-            background-color: #0E1A2B; /* Tag background */
-            color: #C0C0C0; /* Normal text */
-            border-color: #0E1A2B;
-        }
-        
-        /* For all other skill tags and all project tags */
-        .skill-tag-blue {
-            background-color: #0E1A2B; /* Tag background */
-            color: #6AAEFF; /* Tag text */
-            border-color: #2A2F36; /* Card border */
-        }
-
-        /* Custom shadow override */
-        .shadow-lg {
-            box-shadow: 0 10px 15px -3px rgba(10, 10, 10, 0.4), 0 4px 6px -2px rgba(10, 10, 10, 0.4);
-        }
-
     </style>
 </head>
-<body class="text-[#C0C0C0]">
+<body class="bg-main-bg text-text-normal">
 
-    <!-- =================================== -->
-    <!-- Header Navigation -->
-    <!-- =================================== -->
-    <header class="sticky top-0 z-50 bg-[#0B0F19]/80 backdrop-blur-md border-b border-[#2A2F36]">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-main-bg/80 backdrop-blur-md border-b border-border-color">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 
                 <!-- Logo / Name -->
                 <div class="flex-shrink-0">
-                    <a href="#home" class="text-2xl font-bold text-[#F5F5F5]">Pratik Kumar</a>
+                    <a href="#home" class="text-2xl font-bold text-text-heading">Pratik Kumar</a>
                 </div>
                 
-                <!-- Desktop Menu -->
+                <!-- Desktop Nav -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="nav-link text-[#C0C0C0] hover:text-[#4169E1] px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                        <a href="#about" class="nav-link text-[#C0C0C0] hover:text-[#4169E1] px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="#skills" class="nav-link text-[#C0C0C0] hover:text-[#4169E1] px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                        <a href="#experience" class="nav-link text-[#C0C0C0] hover:text-[#4169E1] px-3 py-2 rounded-md text-sm font-medium">Experience</a>
-                        <a href="#projects" class="nav-link text-[#C0C0C0] hover:text-[#4169E1] px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                        <a href="#certifications" class="nav-link text-[#C0C0C0] hover:text-[#4169E1] px-3 py-2 rounded-md text-sm font-medium">Certifications</a>
-                        <a href="#contact" class="nav-link text-[#C0C0C0] hover:text-[#4169E1] px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                        <a href="#home" class="nav-link text-text-normal hover:text-highlight-primary px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="nav-link text-text-normal hover:text-highlight-primary px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills" class="nav-link text-text-normal hover:text-highlight-primary px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#experience" class="nav-link text-text-normal hover:text-highlight-primary px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                        <a href="#projects" class="nav-link text-text-normal hover:text-highlight-primary px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="#certifications" class="nav-link text-text-normal hover:text-highlight-primary px-3 py-2 rounded-md text-sm font-medium">Certifications</a>
+                        <a href="#contact" class="nav-link text-text-normal hover:text-highlight-primary px-3 py-2 rounded-md text-sm font-medium">Contact</a>
                     </div>
                 </div>
                 
-                <!-- Mobile Menu Button (if you want one, add it here) -->
+                <!-- Mobile Menu Button (if needed) -->
                 <div class="md:hidden">
-                    <!-- Mobile menu button can be added here -->
+                    <!-- Can add a hamburger button here if you want mobile nav -->
                 </div>
             </div>
         </nav>
@@ -130,79 +104,75 @@
 
     <main>
         
-        <!-- =================================== -->
-        <!-- Home Section (#home) -->
-        <!-- =================================== -->
+        <!-- Home Section -->
         <section id="home" class="min-h-[calc(100vh-4rem)] flex items-center pt-16 pb-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center">
                 
-                <!-- Left Content -->
+                <!-- Left: Hero Text -->
                 <div class="space-y-6">
-                    <h1 class="text-5xl md:text-6xl font-extrabold text-[#F5F5F5] leading-tight">
+                    <h1 class="text-5xl md:text-6xl font-extrabold text-text-heading leading-tight">
                         Pratik Kumar
                     </h1>
-                    <p class="text-2xl font-semibold text-[#4169E1]">Data Analyst</p>
-                    <p class="text-lg text-[#C0C0C0]">MBA @ IIT Patna</p>
-                    <p class="text-lg text-[#C0C0C0] max-w-lg">
+                    <p class="text-2xl font-semibold text-highlight-primary">Data Analyst</p>
+                    <p class="text-lg text-text-normal">MBA @ IIT Patna</p>
+                    <p class="text-lg text-text-normal max-w-lg">
                         Transforming data into actionable insights with 2+ years of experience in analytics, dashboard development, and business intelligence.
                     </p>
                     
                     <!-- Buttons -->
                     <div class="flex flex-wrap gap-4">
-                        <a href="#contact" class="flex items-center gap-2 bg-[#4169E1] hover:bg-[#3388FF] text-white font-semibold px-6 py-3 rounded-lg transition duration-300 shadow-lg">
+                        <a href="#contact" class="flex items-center gap-2 bg-highlight-primary hover:opacity-90 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 shadow-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                             Get In Touch
                         </a>
-                        <a href="#" class="flex items-center gap-2 bg-[#1A1F29] hover:bg-[#2A2F36] text-white font-semibold px-6 py-3 rounded-lg transition duration-300">
+                        <a href="#" class="flex items-center gap-2 bg-card-bg hover:bg-border-color border border-border-color text-text-heading font-semibold px-6 py-3 rounded-lg transition duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                             Download Resume
                         </a>
                     </div>
                     
-                    <!-- Social Links -->
+                    <!-- Socials -->
                     <div class="flex items-center space-x-6 pt-4">
-                        <a href="https://github.com/itspsr" target="_blank" rel="noopener noreferrer" class="text-[#8FA1B3] hover:text-[#F5F5F5] transition duration-300" title="GitHub">
+                        <a href="https://github.com/itspsr" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-text-heading transition duration-300" title="GitHub">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                         </a>
-                        <a href="https://www.linkedin.com/in/data-by-pratik/" target="_blank" rel="noopener noreferrer" class="text-[#0A66C2] hover:text-[#0077B5] transition duration-300" title="LinkedIn">
+                        <a href="https://www.linkedin.com/in/data-by-pratik/" target="_blank" rel="noopener noreferrer" class="text-[#0A66C2] hover:opacity-80 transition duration-300" title="LinkedIn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                         </a>
-                        <a href="https://www.instagram.com/itspsr/" target="_blank" rel="noopener noreferrer" class="text-[#E1306C] hover:text-[#C13584] transition duration-300" title="Instagram">
+                        <a href="https://www.instagram.com/itspsr/" target="_blank" rel="noopener noreferrer" class="text-[#E1306C] hover:opacity-80 transition duration-300" title="Instagram">
                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
                     </div>
                     
                     <!-- Location -->
-                    <div class="flex items-center gap-2 text-[#8FA1B3] pt-4">
+                    <div class="flex items-center gap-2 text-text-muted pt-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         <span>Noida, Uttar Pradesh</span>
                     </div>
                 </div>
                 
-                <!-- Right Content (Image) -->
+                <!-- Right: Image -->
                 <div class="flex justify-center md:justify-end">
                     <img src="IMG_7140.JPG.jpg" 
                          alt="Pratik Kumar" 
-                         class="rounded-lg w-full max-w-md shadow-custom object-cover"
+                         class="rounded-lg w-full max-w-md shadow-2xl object-cover"
                          onerror="this.src='https://placehold.co/448x576/1A1F29/C0C0C0?text=Profile+Photo'">
                 </div>
             </div>
         </section>
 
-        <!-- =================================== -->
-        <!-- About Section (#about) -->
-        <!-- =================================== -->
-        <section id="about" class="py-24 bg-[#12161F]">
+        <!-- About Me Section -->
+        <section id="about" class="py-24 bg-section-bg">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <!-- Section Header -->
+                <!-- Section Title -->
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-extrabold text-[#F5F5F5] sm:text-5xl">About Me</h2>
-                    <div class="mt-4 h-1.5 w-24 bg-[#3388FF] mx-auto rounded-full"></div>
+                    <h2 class="text-4xl font-extrabold text-text-heading sm:text-5xl">About Me</h2>
+                    <div class="mt-4 h-1.5 w-24 bg-highlight-underline mx-auto rounded-full"></div>
                 </div>
                 
                 <!-- About Text -->
-                <div class="max-w-3xl mx-auto text-center space-y-5 text-lg text-[#C0C0C0]">
+                <div class="max-w-3xl mx-auto text-center space-y-5 text-lg text-text-normal">
                     <p>
                         MBA Candidate at IIT Patna with 2+ years of experience as a Data Analyst. I specialize in Business Intelligence, Marketing & Growth Analytics, and Product Strategy & Startup Analytics. Currently building an edge in business strategy, product management, and scalable analytics.
                     </p>
@@ -211,125 +181,120 @@
                     </p>
                 </div>
                 
-                <!-- Stats Cards -->
+                <!-- 3-Card Info -->
                 <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
                     
-                    <div class="bg-[#1A1F29] p-8 rounded-lg border border-[#2A2F36] text-center shadow-lg transform hover:scale-105 transition duration-300">
-                        <div class="text-[#4169E1] mx-auto mb-4 w-12 h-12 flex items-center justify-center">
+                    <div class="bg-card-bg p-8 rounded-lg border border-border-color text-center shadow-lg transform hover:scale-105 transition duration-300">
+                        <div class="text-tag-text mx-auto mb-4 w-12 h-12 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-[#F5F5F5] mb-2">2+ Years Experience</h3>
-                        <p class="text-[#8FA1B3]">Building dashboards and automating reporting.</p>
+                        <h3 class="text-xl font-bold text-text-heading mb-2">2+ Years Experience</h3>
+                        <p class="text-text-muted">Building dashboards and automating reporting.</p>
                     </div>
                     
-                    <div class="bg-[#1A1F29] p-8 rounded-lg border border-[#2A2F36] text-center shadow-lg transform hover:scale-105 transition duration-300">
-                        <div class="text-[#4169E1] mx-auto mb-4 w-12 h-12 flex items-center justify-center">
+                    <div class="bg-card-bg p-8 rounded-lg border border-border-color text-center shadow-lg transform hover:scale-105 transition duration-300">
+                        <div class="text-tag-text mx-auto mb-4 w-12 h-12 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-[#F5F5F5] mb-2">Business Impact</h3>
-                        <p class="text-[#8FA1B3]">Reduced order delays by 30% through analytics.</p>
+                        <h3 class="text-xl font-bold text-text-heading mb-2">Business Impact</h3>
+                        <p class="text-text-muted">Reduced order delays by 30% through analytics.</p>
                     </div>
                     
-                    <div class="bg-[#1A1F29] p-8 rounded-lg border border-[#2A2F36] text-center shadow-lg transform hover:scale-105 transition duration-300">
-                        <div class="text-[#4169E1] mx-auto mb-4 w-12 h-12 flex items-center justify-center">
+                    <div class="bg-card-bg p-8 rounded-lg border border-border-color text-center shadow-lg transform hover:scale-105 transition duration-300">
+                        <div class="text-tag-text mx-auto mb-4 w-12 h-12 flex items-center justify-center">
                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-[#F5F5F5] mb-2">Technical Expertise</h3>
-                        <p class="text-[#8FA1B3]">SQL, Python, Power BI, Machine Learning.</p>
+                        <h3 class="text-xl font-bold text-text-heading mb-2">Technical Expertise</h3>
+                        <p class="text-text-muted">SQL, Python, Power BI, Machine Learning.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- =================================== -->
-        <!-- Skills Section (#skills) -->
-        <!-- =================================== -->
+        <!-- Skills & Expertise Section -->
         <section id="skills" class="py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <!-- Section Header -->
+                <!-- Section Title -->
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-extrabold text-[#F5F5F5] sm:text-5xl">Skills & Expertise</h2>
-                    <div class="mt-4 h-1.5 w-24 bg-[#3388FF] mx-auto rounded-full"></div>
+                    <h2 class="text-4xl font-extrabold text-text-heading sm:text-5xl">Skills & Expertise</h2>
+                    <div class="mt-4 h-1.5 w-24 bg-highlight-underline mx-auto rounded-full"></div>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     
-                    <!-- Skill Category 1 -->
-                    <div class="bg-[#1A1F29] p-8 rounded-lg border border-[#2A2F36]">
-                        <h3 class="text-2xl font-bold text-[#F5F5F5] mb-6">Programming & Query Languages</h3>
+                    <!-- Skill Card 1 -->
+                    <div class="bg-card-bg p-8 rounded-lg border border-border-color">
+                        <h3 class="text-2xl font-bold text-text-heading mb-6">Programming & Query Languages</h3>
                         <div class="flex flex-wrap gap-3">
-                            <span class="skill-tag-grey px-4 py-2 rounded-full font-medium border">SQL</span>
-                            <span class="skill-tag px-4 py-2 rounded-full font-medium border">Python</span>
-                            <span class="skill-tag px-4 py-2 rounded-full font-medium border">R</span>
+                            <span class="bg-tag-bg text-text-muted px-4 py-2 rounded-full font-medium">SQL</span>
+                            <span class="bg-tag-bg text-text-muted px-4 py-2 rounded-full font-medium">Python</span>
+                            <span class="bg-tag-bg text-text-muted px-4 py-2 rounded-full font-medium">R</span>
                         </div>
                     </div>
                     
-                    <!-- Skill Category 2 -->
-                    <div class="bg-[#1A1F29] p-8 rounded-lg border border-[#2A2F36]">
-                        <h3 class="text-2xl font-bold text-[#F5F5F5] mb-6">Data Visualization & BI Tools</h3>
+                    <!-- Skill Card 2 -->
+                    <div class="bg-card-bg p-8 rounded-lg border border-border-color">
+                        <h3 class="text-2xl font-bold text-text-heading mb-6">Data Visualization & BI Tools</h3>
                         <div class="flex flex-wrap gap-3">
-                            <span class="skill-tag-blue px-4 py-2 rounded-full font-medium border">Power BI</span>
-                            <span class="skill-tag px-4 py-2 rounded-full font-medium border">Tableau</span>
-                            <span class="skill-tag px-4 py-2 rounded-full font-medium border">Excel</span>
-                            <span class="skill-tag px-4 py-2 rounded-full font-medium border">Google Analytics</span>
+                            <span class="bg-tag-bg text-tag-text border border-[#1d2d4e] px-4 py-2 rounded-full font-medium">Power BI</span>
+                            <span class="bg-tag-bg text-tag-text border border-[#1d2d4e] px-4 py-2 rounded-full font-medium">Tableau</span>
+                            <span class="bg-tag-bg text-tag-text border border-[#1d2d4e] px-4 py-2 rounded-full font-medium">Excel</span>
+                            <span class="bg-tag-bg text-tag-text border border-[#1d2d4e] px-4 py-2 rounded-full font-medium">Google Analytics</span>
                         </div>
                     </div>
                     
-                    <!-- Skill Category 3 -->
-                    <div class="bg-[#1A1F29] p-8 rounded-lg border border-[#2A2F36]">
-                        <h3 class="text-2xl font-bold text-[#F5F5F5] mb-6">Data Science & Analytics</h3>
+                    <!-- Skill Card 3 -->
+                    <div class="bg-card-bg p-8 rounded-lg border border-border-color">
+                        <h3 class="text-2xl font-bold text-text-heading mb-6">Data Science & Analytics</h3>
                         <div class="flex flex-wrap gap-3">
-                            <span class="skill-tag-blue px-4 py-2 rounded-full font-medium border">EDA</span>
-                            <span class="skill-tag px-4 py-2 rounded-full font-medium border">Machine Learning</span>
-                            <span class="skill-tag px-4 py-2 rounded-full font-medium border">Statistical Analysis</span>
-                            <span class="skill-tag px-4 py-2 rounded-full font-medium border">Experimental Design</span>
+                            <span class="bg-tag-bg text-tag-text border border-[#1d2d4e] px-4 py-2 rounded-full font-medium">EDA</span>
+                            <span class="bg-tag-bg text-tag-text border border-[#1d2d4e] px-4 py-2 rounded-full font-medium">Machine Learning</span>
+                            <span class="bg-tag-bg text-tag-text border border-[#1d2d4e] px-4 py-2 rounded-full font-medium">Statistical Analysis</span>
+                            <span class="bg-tag-bg text-tag-text border border-[#1d2d4e] px-4 py-2 rounded-full font-medium">Experimental Design</span>
                         </div>
                     </div>
                     
-                    <!-- Skill Category 4 -->
-                    <div class="bg-[#1A1F29] p-8 rounded-lg border border-[#2A2F36]">
-                        <h3 class="text-2xl font-bold text-[#F5F5F5] mb-6">Business & Strategy</h3>
+                    <!-- Skill Card 4 -->
+                    <div class="bg-card-bg p-8 rounded-lg border border-border-color">
+                        <h3 class="text-2xl font-bold text-text-heading mb-6">Business & Strategy</h3>
                         <div class="flex flex-wrap gap-3">
-                            <span class="skill-tag-blue px-4 py-2 rounded-full font-medium border">Business Analytics</span>
-                            <span class="skill-tag px-4 py-2 rounded-full font-medium border">A/B Testing</span>
-                            <span class="skill-tag px-4 py-2 rounded-full font-medium border">Product Analytics</span>
-                            <span class="skill-tag px-4 py-2 rounded-full font-medium border">Data Storytelling</span>
+                            <span class="bg-tag-bg text-tag-text border border-[#1d2d4e] px-4 py-2 rounded-full font-medium">Business Analytics</span>
+                            <span class="bg-tag-bg text-tag-text border border-[#1d2d4e] px-4 py-2 rounded-full font-medium">A/B Testing</span>
+                            <span class="bg-tag-bg text-tag-text border border-[#1d2d4e] px-4 py-2 rounded-full font-medium">Product Analytics</span>
+                            <span class="bg-tag-bg text-tag-text border border-[#1d2d4e] px-4 py-2 rounded-full font-medium">Data Storytelling</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- =================================== -->
-        <!-- Experience Section (#experience) -->
-        <!-- =================================== -->
-        <section id="experience" class="py-24 bg-[#12161F]">
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 bg-section-bg">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <!-- Section Header -->
+                <!-- Section Title -->
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-extrabold text-[#F5F5F5] sm:text-5xl">Experience</h2>
-                    <div class="mt-4 h-1.5 w-24 bg-[#3388FF] mx-auto rounded-full"></div>
+                    <h2 class="text-4xl font-extrabold text-text-heading sm:text-5xl">Experience</h2>
+                    <div class="mt-4 h-1.5 w-24 bg-highlight-underline mx-auto rounded-full"></div>
                 </div>
                 
                 <div class="max-w-3xl mx-auto">
-                    
-                    <!-- Timeline Container -->
+                    <!-- Timeline -->
                     <div class="relative">
                         
-                        <!-- The vertical line -->
-                        <div class="absolute left-0 top-0 w-0.5 h-full bg-[#2A2F36]" style="left: 0.625rem; /* 10px */" aria-hidden="true"></div>
+                        <!-- Timeline Line -->
+                        <div class="absolute left-0 top-0 w-0.5 h-full bg-border-color" style="left: 0.625rem; /* 10px */" aria-hidden="true"></div>
                         
-                        <!-- Timeline Item 1: MBA Student (NEW) -->
+                        <!-- Timeline Item 1: MBA -->
                         <div class="relative pl-10 mb-12">
-                            <!-- The dot -->
-                            <div class="absolute left-0 top-2 w-5 h-5 bg-[#3388FF] rounded-full border-4 border-[#12161F]"></div>
-                            <!-- The card -->
-                            <div class="bg-[#1A1F29] p-6 rounded-lg border border-[#2A2F36] shadow-lg">
-                                <h3 class="text-xl font-bold text-[#F5F5F5]">MBA Student</h3>
-                                <p class="text-lg font-semibold text-[#4169E1] mb-2">IIT Patna</p>
-                                <div class="text-sm text-[#8FA1B3] space-y-1 mb-4">
+                            <!-- Dot -->
+                            <div class="absolute left-0 top-2 w-5 h-5 bg-highlight-primary rounded-full border-4 border-section-bg"></div>
+                            
+                            <div class="bg-card-bg p-6 rounded-lg border border-border-color shadow-lg">
+                                <h3 class="text-xl font-bold text-text-heading">MBA Student</h3>
+                                <p class="text-lg font-semibold text-tag-text mb-2">IIT Patna</p>
+                                <div class="text-sm text-text-muted space-y-1 mb-4">
                                     <p class="flex items-center gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                         <span>2025 – 2027 (Ongoing)</span>
@@ -339,7 +304,7 @@
                                         <span>Patna, India</span>
                                     </p>
                                 </div>
-                                <ul class="list-disc list-inside text-[#C0C0C0] space-y-2">
+                                <ul class="list-disc list-inside text-text-normal space-y-2">
                                     <li>Specialization: Business Analytics & Strategy.</li>
                                     <li>Focus on data-driven decision making and business intelligence.</li>
                                     <li>Coursework in advanced analytics and strategic management.</li>
@@ -349,13 +314,13 @@
 
                         <!-- Timeline Item 2: Data Analyst -->
                         <div class="relative pl-10 mb-12">
-                            <!-- The dot -->
-                            <div class="absolute left-0 top-2 w-5 h-5 bg-[#3388FF] rounded-full border-4 border-[#12161F]"></div>
-                            <!-- The card -->
-                            <div class="bg-[#1A1F29] p-6 rounded-lg border border-[#2A2F36] shadow-lg">
-                                <h3 class="text-xl font-bold text-[#F5F5F5]">Data Analyst</h3>
-                                <p class="text-lg font-semibold text-[#4169E1] mb-2">P2P System</p>
-                                <div class="text-sm text-[#8FA1B3] space-y-1 mb-4">
+                            <!-- Dot -->
+                            <div class="absolute left-0 top-2 w-5 h-5 bg-highlight-primary rounded-full border-4 border-section-bg"></div>
+                            
+                            <div class="bg-card-bg p-6 rounded-lg border border-border-color shadow-lg">
+                                <h3 class="text-xl font-bold text-text-heading">Data Analyst</h3>
+                                <p class="text-lg font-semibold text-tag-text mb-2">P2P System</p>
+                                <div class="text-sm text-text-muted space-y-1 mb-4">
                                     <p class="flex items-center gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                         <span>Dec 2022 – Jul 2025</span>
@@ -365,7 +330,7 @@
                                         <span>Noida, Uttar Pradesh, India</span>
                                     </p>
                                 </div>
-                                <ul class="list-disc list-inside text-[#C0C0C0] space-y-2">
+                                <ul class="list-disc list-inside text-text-normal space-y-2">
                                     <li>Built Power BI dashboards for sourcing lifecycle, reducing order delays by 30%.</li>
                                     <li>Developed factory compliance dashboards, improving product quality scores.</li>
                                     <li>Ran A/B experiments across regions, boosting campaign effectiveness by 12%.</li>
@@ -375,15 +340,15 @@
                             </div>
                         </div>
                         
-                        <!-- Timeline Item 3: Data Science Intern -->
+                        <!-- Timeline Item 3: DS Intern -->
                         <div class="relative pl-10 mb-12">
-                            <!-- The dot -->
-                            <div class="absolute left-0 top-2 w-5 h-5 bg-[#3388FF] rounded-full border-4 border-[#12161F]"></div>
-                            <!-- The card -->
-                            <div class="bg-[#1A1F29] p-6 rounded-lg border border-[#2A2F36] shadow-lg">
-                                <h3 class="text-xl font-bold text-[#F5F5F5]">Data Science Intern</h3>
-                                <p class="text-lg font-semibold text-[#4169E1] mb-2">Flip Robo Technologies LLC</p>
-                                <div class="text-sm text-[#8FA1B3] space-y-1 mb-4">
+                            <!-- Dot -->
+                            <div class="absolute left-0 top-2 w-5 h-5 bg-highlight-primary rounded-full border-4 border-section-bg"></div>
+                            
+                            <div class="bg-card-bg p-6 rounded-lg border border-border-color shadow-lg">
+                                <h3 class="text-xl font-bold text-text-heading">Data Science Intern</h3>
+                                <p class="text-lg font-semibold text-tag-text mb-2">Flip Robo Technologies LLC</p>
+                                <div class="text-sm text-text-muted space-y-1 mb-4">
                                     <p class="flex items-center gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                         <span>Jan 2022 – Jul 2022</span>
@@ -393,7 +358,7 @@
                                         <span>Bengaluru, Karnataka, India</span>
                                     </p>
                                 </div>
-                                <ul class="list-disc list-inside text-[#C0C0C0] space-y-2">
+                                <ul class="list-disc list-inside text-text-normal space-y-2">
                                     <li>Gained hands-on experience in analyzing complex datasets and building predictive models.</li>
                                     <li>Assisted senior data scientists with feature engineering and model evaluation.</li>
                                 </ul>
@@ -404,109 +369,107 @@
             </div>
         </section>
 
-        <!-- =================================== -->
-        <!-- Projects Section (#projects) -->
-        <!-- =================================== -->
+        <!-- Projects Section -->
         <section id="projects" class="py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <!-- Section Header -->
+                <!-- Section Title -->
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-extrabold text-[#F5F5F5] sm:text-5xl">Projects</h2>
-                    <div class="mt-4 h-1.5 w-24 bg-[#3388FF] mx-auto rounded-full"></div>
-                    <p class="mt-6 max-w-2xl mx-auto text-lg text-[#C0C0C0]">
+                    <h2 class="text-4xl font-extrabold text-text-heading sm:text-5xl">Projects</h2>
+                    <div class="mt-4 h-1.5 w-24 bg-highlight-underline mx-auto rounded-full"></div>
+                    <p class="mt-6 max-w-2xl mx-auto text-lg text-text-normal">
                         Explore my portfolio of data analytics and machine learning projects showcasing real-world problem-solving skills.
                     </p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                     
-                    <!-- Project 1 -->
-                    <div class="bg-[#1A1F29] rounded-lg overflow-hidden border border-[#2A2F36] shadow-lg flex flex-col transform hover:scale-105 transition duration-300">
-                        <img src="https://placehold.co/600x350/1A1F29/6AAEFF?text=Customer+Retention+Dashboard" 
+                    <!-- Project Card 1 -->
+                    <div class="bg-card-bg rounded-lg overflow-hidden border border-border-color shadow-lg flex flex-col transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/600x350/1A1F29/6AAEFF?text=Customer+Retention+Analysis" 
                              alt="Customer Retention Analysis" class="w-full h-56 object-cover"
-                             onerror="this.src='https://placehold.co/600x350/1A1F29/6AAEFF?text=Project+Image'">
+                             onerror="this.src='https://placehold.co/600x350/1A1F29/C0C0C0?text=Project+Image'">
                         <div class="p-6 flex-grow flex flex-col">
-                            <h3 class="text-2xl font-bold text-[#F5F5F5] mb-3">Customer Retention Analysis</h3>
-                            <p class="text-[#C0C0C0] mb-4 flex-grow">
+                            <h3 class="text-2xl font-bold text-text-heading mb-3">Customer Retention Analysis</h3>
+                            <p class="text-text-normal mb-4 flex-grow">
                                 Comprehensive churn analysis using RFM segmentation and cohort analysis. Built interactive Power BI dashboard and Python-based predictive models to identify at-risk customers.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="skill-tag text-sm px-3 py-1 rounded-full border">Python</span>
-                                <span class="skill-tag text-sm px-3 py-1 rounded-full border">Power BI</span>
-                                <span class="skill-tag text-sm px-3 py-1 rounded-full border">RFM Analysis</span>
-                                <span class="skill-tag-blue text-sm px-3 py-1 rounded-full border">Churn Prediction</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Python</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Power BI</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">RFM Analysis</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Churn Prediction</span>
                             </div>
-                            <a href="https://github.com/itspsr/Internship-1/tree/top/Customer%20Retention%20Analysis" target="_blank" rel="noopener noreferrer" class="mt-auto flex items-center justify-center gap-2 text-[#F5F5F5] font-medium py-3 px-4 rounded-lg border border-[#2A2F36] hover:bg-[#0E1A2B] transition duration-300">
+                            <a href="https://github.com/itspsr/Internship-1/tree/top/Customer%20Retention%20Analysis" target="_blank" rel="noopener noreferrer" class="mt-auto flex items-center justify-center gap-2 text-text-heading font-medium py-3 px-4 rounded-lg border border-border-color hover:bg-border-color transition duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                                 <span>View on GitHub</span>
                             </a>
                         </div>
                     </div>
                     
-                    <!-- Project 2 -->
-                    <div class="bg-[#1A1F29] rounded-lg overflow-hidden border border-[#2A2F36] shadow-lg flex flex-col transform hover:scale-105 transition duration-300">
+                    <!-- Project Card 2 -->
+                    <div class="bg-card-bg rounded-lg overflow-hidden border border-border-color shadow-lg flex flex-col transform hover:scale-105 transition duration-300">
                         <img src="https://placehold.co/600x350/1A1F29/6AAEFF?text=Flight+Price+Prediction" 
                              alt="Flight Ticket Price Prediction" class="w-full h-56 object-cover"
-                             onerror="this.src='https://placehold.co/600x350/1A1F29/6AAEFF?text=Project+Image'">
+                             onerror="this.src='https://placehold.co/600x350/1A1F29/C0C0C0?text=Project+Image'">
                         <div class="p-6 flex-grow flex flex-col">
-                            <h3 class="text-2xl font-bold text-[#F5F5F5] mb-3">Flight Ticket Price Prediction</h3>
-                            <p class="text-[#C0C0C0] mb-4 flex-grow">
+                            <h3 class="text-2xl font-bold text-text-heading mb-3">Flight Ticket Price Prediction</h3>
+                            <p class="text-text-normal mb-4 flex-grow">
                                 ML-based regression model to predict flight ticket prices using feature engineering and multiple algorithms. Achieved high accuracy through hyperparameter tuning.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="skill-tag text-sm px-3 py-1 rounded-full border">Machine Learning</span>
-                                <span class="skill-tag text-sm px-3 py-1 rounded-full border">Python</span>
-                                <span class="skill-tag text-sm px-3 py-1 rounded-full border">Regression</span>
-                                <span class="skill-tag-blue text-sm px-3 py-1 rounded-full border">Feature Engineering</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Machine Learning</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Python</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Regression</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Feature Engineering</span>
                             </div>
-                            <a href="https://github.com/itspsr/Internship-1/tree/top/Flight%20Ticket%20Price%20Prediction" target="_blank" rel="noopener noreferrer" class="mt-auto flex items-center justify-center gap-2 text-[#F5F5F5] font-medium py-3 px-4 rounded-lg border border-[#2A2F36] hover:bg-[#0E1A2B] transition duration-300">
+                            <a href="https://github.com/itspsr/Internship-1/tree/top/Flight%20Ticket%20Price%20Prediction" target="_blank" rel="noopener noreferrer" class="mt-auto flex items-center justify-center gap-2 text-text-heading font-medium py-3 px-4 rounded-lg border border-border-color hover:bg-border-color transition duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                                 <span>View on GitHub</span>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Project 3 -->
-                    <div class="bg-[#1A1F29] rounded-lg overflow-hidden border border-[#2A2F36] shadow-lg flex flex-col transform hover:scale-105 transition duration-300">
-                        <img src="https://placehold.co/600x350/1A1F29/6AAEFF?text=House+Price+Prediction" 
+                    <!-- Project Card 3 -->
+                    <div class="bg-card-bg rounded-lg overflow-hidden border border-border-color shadow-lg flex flex-col transform hover:scale-105 transition duration-300">
+                        <img src="https://placehold.co/600x350/1A1F29/6AAEFF?text=House+Pricing+Prediction" 
                              alt="House Pricing Prediction" class="w-full h-56 object-cover"
-                             onerror="this.src='https://placehold.co/600x350/1A1F29/6AAEFF?text=Project+Image'">
+                             onerror="this.src='https://placehold.co/600x350/1A1F29/C0C0C0?text=Project+Image'">
                         <div class="p-6 flex-grow flex flex-col">
-                            <h3 class="text-2xl font-bold text-[#F5F5F5] mb-3">House Pricing Prediction</h3>
-                            <p class="text-[#C0C0C0] mb-4 flex-grow">
+                            <h3 class="text-2xl font-bold text-text-heading mb-3">House Pricing Prediction</h3>
+                            <p class="text-text-normal mb-4 flex-grow">
                                 End-to-end data science project with comprehensive EDA and model pipeline for housing price estimation. Implemented multiple regression techniques and model evaluation.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="skill-tag text-sm px-3 py-1 rounded-full border">Python</span>
-                                <span class="skill-tag text-sm px-3 py-1 rounded-full border">EDA</span>
-                                <span class="skill-tag text-sm px-3 py-1 rounded-full border">Regression</span>
-                                <span class="skill-tag-blue text-sm px-3 py-1 rounded-full border">Data Visualization</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Python</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">EDA</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Regression</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Data Visualization</span>
                             </div>
-                            <a href="https://github.com/itspsr/Internship-1/tree/top/House-Pricing-Prediction" target="_blank" rel="noopener noreferrer" class="mt-auto flex items-center justify-center gap-2 text-[#F5F5F5] font-medium py-3 px-4 rounded-lg border border-[#2A2F36] hover:bg-[#0E1A2B] transition duration-300">
+                            <a href="https://github.com/itspsr/Internship-1/tree/top/House-Pricing-Prediction" target="_blank" rel="noopener noreferrer" class="mt-auto flex items-center justify-center gap-2 text-text-heading font-medium py-3 px-4 rounded-lg border border-border-color hover:bg-border-color transition duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                                 <span>View on GitHub</span>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Project 4 -->
-                    <div class="bg-[#1A1F29] rounded-lg overflow-hidden border border-[#2A2F36] shadow-lg flex flex-col transform hover:scale-105 transition duration-300">
+                    <!-- Project Card 4 -->
+                    <div class="bg-card-bg rounded-lg overflow-hidden border border-border-color shadow-lg flex flex-col transform hover:scale-105 transition duration-300">
                         <img src="https://placehold.co/600x350/1A1F29/6AAEFF?text=Used+Car+Price+Prediction" 
                              alt="Used Car Price Prediction" class="w-full h-56 object-cover"
-                             onerror="this.src='https://placehold.co/600x350/1A1F29/6AAEFF?text=Project+Image'">
+                             onerror="this.src='https://placehold.co/600x350/1A1F29/C0C0C0?text=Project+Image'">
                         <div class="p-6 flex-grow flex flex-col">
-                            <h3 class="text-2xl font-bold text-[#F5F5F5] mb-3">Used Car Price Prediction</h3>
-                            <p class="text-[#C0C0C0] mb-4 flex-grow">
+                            <h3 class="text-2xl font-bold text-text-heading mb-3">Used Car Price Prediction</h3>
+                            <p class="text-text-normal mb-4 flex-grow">
                                 Supervised ML model for used car marketplace with advanced feature engineering and ensemble methods. Developed data preprocessing pipeline for handling real-world data.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="skill-tag text-sm px-3 py-1 rounded-full border">Machine Learning</span>
-                                <span class="skill-tag text-sm px-3 py-1 rounded-full border">Python</span>
-                                <span class="skill-tag text-sm px-3 py-1 rounded-full border">Ensemble Methods</span>
-                                <span class="skill-tag-blue text-sm px-3 py-1 rounded-full border">Data Preprocessing</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Machine Learning</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Python</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Ensemble Methods</span>
+                                <span class="bg-tag-bg text-tag-text text-sm px-3 py-1 rounded-full">Data Preprocessing</span>
                             </div>
-                            <a href="https://github.com/itspsr/Internship-1/tree/top/Used%20Car%20Price%20Prediction" target="_blank" rel="noopener noreferrer" class="mt-auto flex items-center justify-center gap-2 text-[#F5F5F5] font-medium py-3 px-4 rounded-lg border border-[#2A2F36] hover:bg-[#0E1A2B] transition duration-300">
+                            <a href="https://github.com/itspsr/Internship-1/tree/top/Used%20Car%20Price%20Prediction" target="_blank" rel="noopener noreferrer" class="mt-auto flex items-center justify-center gap-2 text-text-heading font-medium py-3 px-4 rounded-lg border border-border-color hover:bg-border-color transition duration-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                                 <span>View on GitHub</span>
                             </a>
@@ -517,131 +480,127 @@
             </div>
         </section>
 
-        <!-- =================================== -->
-        <!-- Certifications Section (#certifications) -->
-        <!-- =================================== -->
-        <section id="certifications" class="py-24 bg-[#12161F]">
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-24 bg-section-bg">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <!-- Section Header -->
+                <!-- Section Title -->
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-extrabold text-[#F5F5F5] sm:text-5xl">Certifications</h2>
-                    <div class="mt-4 h-1.5 w-24 bg-[#3388FF] mx-auto rounded-full"></div>
+                    <h2 class="text-4xl font-extrabold text-text-heading sm:text-5xl">Certifications</h2>
+                    <div class="mt-4 h-1.5 w-24 bg-highlight-underline mx-auto rounded-full"></div>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- Certification 1 -->
-                    <div class="bg-[#1A1F29] p-8 rounded-lg border border-[#2A2F36] text-center shadow-lg">
-                        <div class="text-[#4169E1] mx-auto mb-4 w-12 h-12 flex items-center justify-center">
+                    <!-- Cert Card 1 -->
+                    <div class="bg-card-bg p-8 rounded-lg border border-border-color text-center shadow-lg">
+                        <div class="text-tag-text mx-auto mb-4 w-12 h-12 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-[#F5F5F5] mb-2">Introduction to Programming Using Python</h3>
-                        <p class="text-[#8FA1B3]">Microsoft</p>
+                        <h3 class="text-xl font-bold text-text-heading mb-2">Introduction to Programming Using Python</h3>
+                        <p class="text-text-muted">Microsoft</p>
                     </div>
                     
-                    <!-- Certification 2 -->
-                    <div class="bg-[#1A1F29] p-8 rounded-lg border border-[#2A2F36] text-center shadow-lg">
-                        <div class="text-[#4169E1] mx-auto mb-4 w-12 h-12 flex items-center justify-center">
+                    <!-- Cert Card 2 -->
+                    <div class="bg-card-bg p-8 rounded-lg border border-border-color text-center shadow-lg">
+                        <div class="text-tag-text mx-auto mb-4 w-12 h-12 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-[#F5F5F5] mb-2">Certified Data Scientist</h3>
-                        <p class="text-[#8FA1B3]">Professional Certification</p>
+                        <h3 class="text-xl font-bold text-text-heading mb-2">Certified Data Scientist</h3>
+                        <p class="text-text-muted">Professional Certification</p>
                     </div>
 
-                    <!-- Certification 3 -->
-                    <div class="bg-[#1A1F29] p-8 rounded-lg border border-[#2A2F36] text-center shadow-lg">
-                        <div class="text-[#4169E1] mx-auto mb-4 w-12 h-12 flex items-center justify-center">
+                    <!-- Cert Card 3 -->
+                    <div class="bg-card-bg p-8 rounded-lg border border-border-color text-center shadow-lg">
+                        <div class="text-tag-text mx-auto mb-4 w-12 h-12 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-[#F5F5F5] mb-2">Business Analytics with Power BI</h3>
-                        <p class="text-[#8FA1B3]">Microsoft</p>
+                        <h3 class="text-xl font-bold text-text-heading mb-2">Business Analytics with Power BI</h3>
+                        <p class="text-text-muted">Microsoft</p>
                     </div>
 
-                    <!-- Certification 4 (Centered on medium screens) -->
-                    <div class="bg-[#1A1F29] p-8 rounded-lg border border-[#2A2F36] text-center shadow-lg md:col-start-1 lg:col-start-2">
-                        <div class="text-[#4169E1] mx-auto mb-4 w-12 h-12 flex items-center justify-center">
+                    <!-- Cert Card 4 -->
+                    <div class="bg-card-bg p-8 rounded-lg border border-border-color text-center shadow-lg lg:col-start-2">
+                        <div class="text-tag-text mx-auto mb-4 w-12 h-12 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-[#F5F5F5] mb-2">Business Analytics with SAS</h3>
-                        <p class="text-[#8FA1B3]">SAS Institute</p>
+                        <h3 class="text-xl font-bold text-text-heading mb-2">Business Analytics with SAS</h3>
+                        <p class="text-text-muted">SAS Institute</p>
                     </div>
 
-                    <!-- Certification 5 -->
-                    <div class="bg-[#1A1F29] p-8 rounded-lg border border-[#2A2F36] text-center shadow-lg">
-                        <div class="text-[#4169E1] mx-auto mb-4 w-12 h-12 flex items-center justify-center">
+                    <!-- Cert Card 5 -->
+                    <div class="bg-card-bg p-8 rounded-lg border border-border-color text-center shadow-lg">
+                        <div class="text-tag-text mx-auto mb-4 w-12 h-12 flex items-center justify-center">
                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-[#F5F5F5] mb-2">Certified Ethical Hacker (CEH)</h3>
-                        <p class="text-[#8FA1B3]">EC-Council</p>
+                        <h3 class="text-xl font-bold text-text-heading mb-2">Certified Ethical Hacker (CEH)</h3>
+                        <p class="text-text-muted">EC-Council</p>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- =================================== -->
-        <!-- Contact Section (#contact) -->
-        <!-- =================================== -->
+        <!-- Contact Section -->
         <section id="contact" class="py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <!-- Section Header -->
+                <!-- Section Title -->
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-extrabold text-[#F5F5F5] sm:text-5xl">Get In Touch</h2>
-                    <div class="mt-4 h-1.5 w-24 bg-[#3388FF] mx-auto rounded-full"></div>
-                    <p class="mt-6 max-w-2xl mx-auto text-lg text-[#C0C0C0]">
+                    <h2 class="text-4xl font-extrabold text-text-heading sm:text-5xl">Get In Touch</h2>
+                    <div class="mt-4 h-1.5 w-24 bg-highlight-underline mx-auto rounded-full"></div>
+                    <p class="mt-6 max-w-2xl mx-auto text-lg text-text-normal">
                         I'm always open to discussing new opportunities, collaborations, or just connecting with fellow data enthusiasts.
                     </p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-16 bg-[#1A1F29] p-8 md:p-12 rounded-lg border border-[#2A2F36]">
+                <div class="grid md:grid-cols-2 gap-16 bg-card-bg p-8 md:p-12 rounded-lg border border-border-color">
                     
                     <!-- Left: Contact Info -->
                     <div class="space-y-8">
                         <div>
-                            <h3 class="text-2xl font-bold text-[#F5F5F5] mb-6">Contact Information</h3>
+                            <h3 class="text-2xl font-bold text-text-heading mb-6">Contact Information</h3>
                             <div class="space-y-6">
                                 <div class="flex items-start gap-4">
-                                    <div class="text-[#4169E1] mt-1">
+                                    <div class="text-tag-text mt-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                                     </div>
                                     <div>
-                                        <h4 class="text-lg font-semibold text-[#F5F5F5]">Email</h4>
-                                        <a href="mailto:pratik6472@gmail.com" class="text-[#C0C0C0] hover:text-[#4169E1] transition">pratik6472@gmail.com</a><br>
-                                        <a href="mailto:itsspr0107@gmail.com" class="text-[#C0C0C0] hover:text-[#4169E1] transition">itsspr0107@gmail.com</a>
+                                        <h4 class="text-lg font-semibold text-text-heading">Email</h4>
+                                        <a href="mailto:pratik6472@gmail.com" class="text-text-normal hover:text-highlight-primary transition">pratik6472@gmail.com</a><br>
+                                        <a href="mailto:itsspr0107@gmail.com" class="text-text-normal hover:text-highlight-primary transition">itsspr0107@gmail.com</a>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-4">
-                                    <div class="text-[#4169E1] mt-1">
+                                    <div class="text-tag-text mt-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                                     </div>
                                     <div>
-                                        <h4 class="text-lg font-semibold text-[#F5F5F5]">Phone</h4>
-                                        <a href="tel:+91-8826797371" class="text-[#C0C0C0] hover:text-[#4169E1] transition">+91-8826797371</a>
+                                        <h4 class="text-lg font-semibold text-text-heading">Phone</h4>
+                                        <a href="tel:+91-8826797371" class="text-text-normal hover:text-highlight-primary transition">+91-8826797371</a>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-4">
-                                    <div class="text-[#4169E1] mt-1">
+                                    <div class="text-tag-text mt-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                                     </div>
                                     <div>
-                                        <h4 class="text-lg font-semibold text-[#F5F5F5]">Location</h4>
-                                        <p class="text-[#C0C0C0]">Noida, Uttar Pradesh, India</p>
+                                        <h4 class="text-lg font-semibold text-text-heading">Location</h4>
+                                        <p class="text-text-normal">Noida, Uttar Pradesh, India</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="border-t border-[#2A2F36] pt-8">
-                            <h3 class="text-2xl font-bold text-[#F5F5F5] mb-4">Connect With Me</h3>
+                        <div class="border-t border-border-color pt-8">
+                            <h3 class="text-2xl font-bold text-text-heading mb-4">Connect With Me</h3>
                             <div class="flex items-center space-x-6">
-                                <a href="https://github.com/itspsr" target="_blank" rel="noopener noreferrer" class="text-[#8FA1B3] hover:text-[#F5F5F5] transition duration-300" title="GitHub">
+                                <a href="https://github.com/itspsr" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-text-heading transition duration-300" title="GitHub">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                                 </a>
-                                <a href="https://www.linkedin.com/in/data-by-pratik/" target="_blank" rel="noopener noreferrer" class="text-[#0A66C2] hover:text-[#0077B5] transition duration-300" title="LinkedIn">
+                                <a href="https://www.linkedin.com/in/data-by-pratik/" target="_blank" rel="noopener noreferrer" class="text-[#0A66C2] hover:opacity-80 transition duration-300" title="LinkedIn">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                                 </a>
-                                <a href="https://www.instagram.com/itspsr/" target="_blank" rel="noopener noreferrer" class="text-[#E1306C] hover:text-[#C13584] transition duration-300" title="Instagram">
+                                <a href="https://www.instagram.com/itspsr/" target="_blank" rel="noopener noreferrer" class="text-[#E1306C] hover:opacity-80 transition duration-300" title="Instagram">
                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                                 </a>
                             </div>
@@ -650,26 +609,26 @@
                     
                     <!-- Right: Contact Form -->
                     <div>
-                        <h3 class="text-2xl font-bold text-[#F5F5F5] mb-6">Send Me a Message</h3>
-                        <form action="#" method="POST" class="space-y-6">
+                        <h3 class="text-2xl font-bold text-text-heading mb-6">Send Me a Message</h3>
+                        <form action="https://formspree.io/f/xzzywovk" method="POST" class="space-y-6">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-[#C0C0C0]">Your Name</label>
-                                <input type="text" name="name" id="name" placeholder="John Doe" class="mt-1 block w-full bg-[#0B0F19] border border-[#2A2F36] rounded-lg shadow-sm py-3 px-4 text-[#F5F5F5] focus:ring-[#4169E1] focus:border-[#4169E1]">
+                                <label for="name" class="block text-sm font-medium text-text-normal">Your Name</label>
+                                <input type="text" name="name" id="name" placeholder="John Doe" class="mt-1 block w-full bg-section-bg border border-border-color rounded-lg shadow-sm py-3 px-4 text-text-heading focus:ring-highlight-primary focus:border-highlight-primary">
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-[#C0C0C0]">Your Email</label>
-                                <input type="email" name="email" id="email" placeholder="john@example.com" class="mt-1 block w-full bg-[#0B0F19] border border-[#2A2F36] rounded-lg shadow-sm py-3 px-4 text-[#F5F5F5] focus:ring-[#4169E1] focus:border-[#4169E1]">
+                                <label for="email" class="block text-sm font-medium text-text-normal">Your Email</label>
+                                <input type="email" name="email" id="email" placeholder="john@example.com" class="mt-1 block w-full bg-section-bg border border-border-color rounded-lg shadow-sm py-3 px-4 text-text-heading focus:ring-highlight-primary focus:border-highlight-primary">
                             </div>
                             <div>
-                                <label for="subject" class="block text-sm font-medium text-[#C0C0C0]">Subject</label>
-                                <input type="text" name="subject" id="subject" placeholder="Project Collaboration" class="mt-1 block w-full bg-[#0B0F19] border border-[#2A2F36] rounded-lg shadow-sm py-3 px-4 text-[#F5F5F5] focus:ring-[#4169E1] focus:border-[#4169E1]">
+                                <label for="subject" class="block text-sm font-medium text-text-normal">Subject</label>
+                                <input type="text" name="subject" id="subject" placeholder="Project Collaboration" class="mt-1 block w-full bg-section-bg border border-border-color rounded-lg shadow-sm py-3 px-4 text-text-heading focus:ring-highlight-primary focus:border-highlight-primary">
                             </div>
                             <div>
-                                <label for="message" class="block text-sm font-medium text-[#C0C0C0]">Message</label>
-                                <textarea name="message" id="message" rows="5" placeholder="Tell me about your project or inquiry..." class="mt-1 block w-full bg-[#0B0F19] border border-[#2A2F36] rounded-lg shadow-sm py-3 px-4 text-[#F5F5F5] focus:ring-[#4169E1] focus:border-[#4169E1]"></textarea>
+                                <label for="message" class="block text-sm font-medium text-text-normal">Message</label>
+                                <textarea name="message" id="message" rows="5" placeholder="Tell me about your project or inquiry..." class="mt-1 block w-full bg-section-bg border border-border-color rounded-lg shadow-sm py-3 px-4 text-text-heading focus:ring-highlight-primary focus:border-highlight-primary"></textarea>
                             </div>
                             <div>
-                                <button type="submit" class="w-full flex items-center justify-center gap-2 bg-[#4169E1] hover:bg-[#3388FF] text-white font-semibold px-6 py-3 rounded-lg transition duration-300 shadow-lg">
+                                <button type="submit" class="w-full flex items-center justify-center gap-2 bg-highlight-primary hover:opacity-90 text-white font-semibold px-6 py-3 rounded-lg transition duration-300 shadow-lg">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                                     Send Message
                                 </button>
@@ -683,20 +642,16 @@
 
     </main>
 
-    <!-- =================================== -->
     <!-- Footer -->
-    <!-- =================================== -->
-    <footer class="bg-section-bg border-t border-border-card py-8">
+    <footer class="bg-section-bg border-t border-border-color py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-muted">
             <p>&copy; 2025 Pratik Kumar. All rights reserved.</p>
-            <p class="mt-2 text-sm">Built with <span class="text-red-500">❤️</span> and data-driven insights.</p>
+            <p class="mt-2 text-sm">Built with ❤️ and data-driven insights.</p>
         </div>
     </footer>
 
 
-    <!-- =================================== -->
-    <!-- JavaScript for Active Nav Link Scrolling -->
-    <!-- =================================== -->
+    <!-- Nav Scroll Spy Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section[id]');
